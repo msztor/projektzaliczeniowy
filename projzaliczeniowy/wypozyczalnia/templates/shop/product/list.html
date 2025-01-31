@@ -1,0 +1,34 @@
+{% extends "shop\base.html" %}
+
+{% block title %}Lista obiektów Product{% endblock %}
+
+{% block content %}
+Aktualnie w mojej bazie dodane są poniższe obiekty Product.
+
+Aktualnie w mojej bazie dodane są poniższe obiekty Person.
+<table>
+    <thead>
+        <th>id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Akcje</th>
+    </thead>
+    <tbody>
+{% for product in produkty %}
+<tr>
+    <td>{{ product.id }}</td>
+    <td>{{ product.name }}</td>
+    <td>{{ product.price }}</td>
+    <td>{{ product.category }}</td>
+    <td>{{ product.description }}</td>
+    <td><a href="{% url 'product-detail' product.id %}">Szczegóły</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+
+
+{% endblock %}
